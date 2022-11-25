@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Focus sound',
       home: _Home(),
     );
   }
@@ -16,13 +16,6 @@ class MyApp extends StatelessWidget {
 class _Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Sample App',
-            style: Theme.of(context).textTheme.headline4,
-          ),
-        ),
-        body: const HomePage());
+    return const HomePage();
   }
 }
