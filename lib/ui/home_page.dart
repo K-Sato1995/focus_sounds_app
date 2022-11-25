@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:focus_sound_app/styles/colors.dart';
+import 'package:focus_sound_app/widgets/audio_box.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,10 +10,30 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CustomColors.themeColor,
-      body: Center(
-        child: Text(
-          'Hello World',
-          style: Theme.of(context).textTheme.headline4,
+      body: Container(
+        margin: const EdgeInsets.only(top: 80),
+        child: Column(
+          children: [
+            const Text('Focus sound',
+                style: TextStyle(
+                    color: CustomColors.textColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30)),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [AudioBox(), AudioBox(), AudioBox()]),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [AudioBox(), AudioBox(), AudioBox()]),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [AudioBox(), AudioBox(), AudioBox()]),
+              ],
+            ),
+          ],
         ),
       ),
     );
