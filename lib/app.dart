@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focus_sound_app/ui/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,6 +23,6 @@ class _Home extends StatelessWidget {
             style: Theme.of(context).textTheme.headline4,
           ),
         ),
-        body: Container(child: const Text('App')));
+        body: HomePage());
   }
 }
