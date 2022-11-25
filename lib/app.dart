@@ -23,6 +23,6 @@ class _Home extends StatelessWidget {
             style: Theme.of(context).textTheme.headline4,
           ),
         ),
-        body: HomePage());
+        body: const HomePage());
   }
 }
