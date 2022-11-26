@@ -9,8 +9,8 @@ class AudioBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
-      width: 100,
+      height: 50,
+      width: 50,
       child: SvgPicture.asset(
         Assets.cafeSvg.path,
       ),

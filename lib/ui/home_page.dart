@@ -19,23 +19,36 @@ class HomePage extends StatelessWidget {
                     color: CustomColors.textColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 30)),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [AudioBox(), AudioBox(), AudioBox()]),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [AudioBox(), AudioBox(), AudioBox()]),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [AudioBox(), AudioBox(), AudioBox()]),
-              ],
-            ),
+            const _AudioBoxList(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _AudioBoxList extends StatelessWidget {
+  const _AudioBoxList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+      crossAxisSpacing: 30,
+      mainAxisSpacing: 60,
+      crossAxisCount: 3,
+      shrinkWrap: true,
+      children: [
+        AudioBox(),
+        AudioBox(),
+        AudioBox(),
+        AudioBox(),
+        AudioBox(),
+        AudioBox(),
+        AudioBox(),
+        AudioBox(),
+        AudioBox()
+      ],
     );
   }
 }
