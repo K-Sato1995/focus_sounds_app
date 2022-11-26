@@ -14,10 +14,6 @@ class AudioBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final player = AudioPlayer();
-    player.setReleaseMode(ReleaseMode.loop);
-    player.setSource(AssetSource('light-rain.wav'));
-
     return Column(
       children: [
         SizedBox(
