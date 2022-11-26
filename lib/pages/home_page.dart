@@ -47,12 +47,6 @@ class _AudioBoxList extends ConsumerWidget {
         AudioBox(player: playerState.playerList[0]),
         AudioBox(player: playerState.playerList[0]),
         AudioBox(player: playerState.playerList[0]),
-        AudioBox(player: playerState.playerList[0]),
-        AudioBox(player: playerState.playerList[0]),
-        AudioBox(player: playerState.playerList[0]),
-        AudioBox(player: playerState.playerList[0]),
-        AudioBox(player: playerState.playerList[0]),
-        AudioBox(player: playerState.playerList[0]),
       ],
     );
   }

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:audioplayers/audioplayers.dart';
 
+import 'package:focus_sound_app/states/player_state.dart';
 import 'package:focus_sound_app/gen/assets.gen.dart';
 
 class AudioBox extends StatelessWidget {
-  final AudioPlayer player;
+  final AudioPlayerItem player;
 
   const AudioBox({
     super.key,
@@ -20,7 +21,7 @@ class AudioBox extends StatelessWidget {
           height: 50,
           width: 50,
           child: InkWell(
-            onTap: () => {player.resume()},
+            onTap: () => {print(player.title), player.resume()},
             child: SvgPicture.asset(
               Assets.cafeSvg.path,
             ),

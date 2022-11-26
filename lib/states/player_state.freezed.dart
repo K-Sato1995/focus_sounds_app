@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PlayerState {
-  List<AudioPlayer> get playerList => throw _privateConstructorUsedError;
+  List<AudioPlayerItem> get playerList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayerStateCopyWith<PlayerState> get copyWith =>
@@ -29,7 +29,7 @@ abstract class $PlayerStateCopyWith<$Res> {
           PlayerState value, $Res Function(PlayerState) then) =
       _$PlayerStateCopyWithImpl<$Res, PlayerState>;
   @useResult
-  $Res call({List<AudioPlayer> playerList});
+  $Res call({List<AudioPlayerItem> playerList});
 }
 
 /// @nodoc
@@ -51,7 +51,7 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
       playerList: null == playerList
           ? _value.playerList
           : playerList // ignore: cast_nullable_to_non_nullable
-              as List<AudioPlayer>,
+              as List<AudioPlayerItem>,
     ) as $Val);
   }
 }
@@ -64,7 +64,7 @@ abstract class _$$_PlayerStateCopyWith<$Res>
       __$$_PlayerStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<AudioPlayer> playerList});
+  $Res call({List<AudioPlayerItem> playerList});
 }
 
 /// @nodoc
@@ -84,7 +84,7 @@ class __$$_PlayerStateCopyWithImpl<$Res>
       playerList: null == playerList
           ? _value._playerList
           : playerList // ignore: cast_nullable_to_non_nullable
-              as List<AudioPlayer>,
+              as List<AudioPlayerItem>,
     ));
   }
 }
@@ -92,14 +92,14 @@ class __$$_PlayerStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PlayerState extends _PlayerState with DiagnosticableTreeMixin {
-  const _$_PlayerState({final List<AudioPlayer> playerList = const []})
+  const _$_PlayerState({final List<AudioPlayerItem> playerList = const []})
       : _playerList = playerList,
         super._();
 
-  final List<AudioPlayer> _playerList;
+  final List<AudioPlayerItem> _playerList;
   @override
   @JsonKey()
-  List<AudioPlayer> get playerList {
+  List<AudioPlayerItem> get playerList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_playerList);
   }
@@ -138,12 +138,12 @@ class _$_PlayerState extends _PlayerState with DiagnosticableTreeMixin {
 }
 
 abstract class _PlayerState extends PlayerState {
-  const factory _PlayerState({final List<AudioPlayer> playerList}) =
+  const factory _PlayerState({final List<AudioPlayerItem> playerList}) =
       _$_PlayerState;
   const _PlayerState._() : super._();
 
   @override
-  List<AudioPlayer> get playerList;
+  List<AudioPlayerItem> get playerList;
   @override
   @JsonKey(ignore: true)
   _$$_PlayerStateCopyWith<_$_PlayerState> get copyWith =>
