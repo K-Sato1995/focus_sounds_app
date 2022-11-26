@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:focus_sound_app/styles/colors.dart';
 import 'package:focus_sound_app/widgets/audio_box.dart';
+import 'package:focus_sound_app/widgets/player.dart';
+
+import 'package:audioplayers/audioplayers.dart';
+
+import 'package:focus_sound_app/gen/assets.gen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -32,6 +37,9 @@ class _AudioBoxList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final player = AudioPlayer();
+    player.setSource(AssetSource('light-rain.wav'));
+
     return GridView.count(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
       crossAxisSpacing: 30,
@@ -47,7 +55,8 @@ class _AudioBoxList extends StatelessWidget {
         AudioBox(),
         AudioBox(),
         AudioBox(),
-        AudioBox()
+        AudioBox(),
+        PlayerWidget(player: player),
       ],
     );
   }
