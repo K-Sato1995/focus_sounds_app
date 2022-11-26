@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:focus_sound_app/styles/colors.dart';
 import 'package:focus_sound_app/widgets/audio_box.dart';
@@ -32,11 +33,11 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class _AudioBoxList extends StatelessWidget {
+class _AudioBoxList extends ConsumerWidget {
   const _AudioBoxList({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef re) {
     final player = AudioPlayer();
     player.setSource(AssetSource('light-rain.wav'));
 

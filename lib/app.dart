@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:focus_sound_app/ui/home_page.dart';
+import 'package:focus_sound_app/pages/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

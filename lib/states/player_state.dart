@@ -13,3 +13,22 @@ class PlayerState with _$PlayerState {
 
   const PlayerState._();
 }
+
+final playerProvider = StateNotifierProvider<PlayerNotifier, PlayerState>(
+  (ref) => PlayerNotifier(),
+);
+
+class PlayerNotifier extends StateNotifier<PlayerState> {
+  PlayerNotifier() : super(const PlayerState()) {
+    _init();
+  }
+
+  void _init() async {
+    print('init players here');
+    final player = AudioPlayer();
+    await player.setSource(AssetSource('light-rain.wav'));
+    await player.setReleaseMode(ReleaseMode.loop);
+
+    state = state.copyWith(playerList: [player]);
+  }
+}
