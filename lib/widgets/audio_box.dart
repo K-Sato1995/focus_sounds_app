@@ -38,8 +38,13 @@ class AudioBox extends ConsumerWidget {
           ),
         ),
         Slider(
-          value: 0,
-          onChanged: (value) {},
+          value: player.currentVolume,
+          max: 1.0,
+          divisions: 5,
+          onChanged: (value) {
+            print(value);
+            playerController.onChangeVolume(player.playerId, value);
+          },
         ),
       ],
     );

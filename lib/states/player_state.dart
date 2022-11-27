@@ -9,13 +9,13 @@ class AudioPlayerItem extends AudioPlayer {
   final String title;
   final String imageResourcePath;
   final String soundResourcePath;
-  bool isPlaying;
+  double currentVolume = 0.5;
+  bool isPlaying = false;
 
   AudioPlayerItem({
     required this.title,
     required this.imageResourcePath,
     required this.soundResourcePath,
-    this.isPlaying = false,
   });
 }
 
@@ -53,6 +53,14 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
     }
   }
 
+  @override
+  void dispose() {
+    for (var player in state.playerList) {
+      player.release();
+    }
+    super.dispose();
+  }
+
   void play(String playerId) {
     for (var player in state.playerList) {
       if (player.playerId == playerId) {
@@ -67,6 +75,15 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
       if (player.playerId == playerId) {
         player.pause();
         player.isPlaying = false;
+      }
+    }
+  }
+
+  void onChangeVolume(String playerId, double volume) {
+    for (var player in state.playerList) {
+      if (player.playerId == playerId) {
+        player.currentVolume = volume;
+        player.setVolume(volume);
       }
     }
   }
