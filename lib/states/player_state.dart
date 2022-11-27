@@ -2,16 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
-
+import 'package:focus_sound_app/consts.dart';
 part 'player_state.freezed.dart';
-
-// const PlayerItems = [
-//   {
-//     'title': 'rain',
-//     'soundResourcePath': 'light-rain.wav',
-//     'imageResourcePath': 'rain.svg',
-//   }
-// ];
 
 class AudioPlayerItem extends AudioPlayer {
   final String title;
@@ -44,15 +36,18 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
   }
 
   void _init() async {
-    print('init players here');
-    final player = AudioPlayerItem(
-        title: 'rain',
-        imageResourcePath: 'rain.svg',
-        soundResourcePath: 'light-rain.wav');
+    for (var element in playerItems) {
+      final playerItem = AudioPlayerItem(
+          title: element['title'] as String,
+          imageResourcePath: element['imageResourcePath'] as String,
+          soundResourcePath: element['soundResourcePath'] as String);
 
-    await player.setSource(AssetSource(player.soundResourcePath));
-    await player.setReleaseMode(ReleaseMode.loop);
+      await playerItem.setSource(AssetSource(playerItem.soundResourcePath));
+      await playerItem.setReleaseMode(ReleaseMode.loop);
 
-    state = state.copyWith(playerList: [player]);
+      state = state.copyWith(
+        playerList: [...state.playerList, playerItem],
+      );
+    }
   }
 }
