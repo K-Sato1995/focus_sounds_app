@@ -10,7 +10,6 @@ class AudioPlayerItem extends AudioPlayer {
   final String imageResourcePath;
   final String soundResourcePath;
   double currentVolume = 0.5;
-  bool isPlaying = false;
 
   AudioPlayerItem({
     required this.title,
@@ -65,7 +64,6 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
     for (var player in state.playerList) {
       if (player.playerId == playerId) {
         player.resume();
-        player.isPlaying = true;
       }
     }
   }
@@ -74,7 +72,6 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
     for (var player in state.playerList) {
       if (player.playerId == playerId) {
         player.pause();
-        player.isPlaying = false;
       }
     }
   }

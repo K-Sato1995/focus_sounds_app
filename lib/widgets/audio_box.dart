@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:audioplayers/audioplayers.dart' as AudioPlayers;
 import 'package:focus_sound_app/states/player_state.dart';
 
 class AudioBox extends ConsumerWidget {
@@ -23,7 +23,7 @@ class AudioBox extends ConsumerWidget {
           width: 50,
           child: InkWell(
             onTap: () => {
-              if (player.isPlaying)
+              if (player.state == AudioPlayers.PlayerState.playing)
                 {
                   playerController.pause(player.playerId),
                 }
