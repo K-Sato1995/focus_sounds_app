@@ -55,7 +55,7 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
   @override
   void dispose() {
     for (var player in state.playerList) {
-      player.release();
+      player.dispose();
     }
     super.dispose();
   }
