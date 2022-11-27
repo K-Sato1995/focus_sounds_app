@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:focus_sound_app/states/player_state.dart';
-import 'package:focus_sound_app/gen/assets.gen.dart';
 
-class AudioBox extends StatelessWidget {
+class AudioBox extends ConsumerWidget {
   final AudioPlayerItem player;
 
   const AudioBox({
@@ -14,14 +13,25 @@ class AudioBox extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final playerController = ref.watch(playerProvider.notifier);
+
     return Column(
       children: [
         SizedBox(
           height: 50,
           width: 50,
           child: InkWell(
-            onTap: () => {print(player.title), player.resume()},
+            onTap: () => {
+              if (player.isPlaying)
+                {
+                  playerController.pause(player.playerId),
+                }
+              else
+                {
+                  playerController.play(player.playerId),
+                }
+            },
             child: SvgPicture.asset(
               player.imageResourcePath,
             ),
