@@ -43,10 +43,7 @@ class _AudioBoxList extends ConsumerWidget {
       crossAxisCount: 3,
       shrinkWrap: true,
       children: [
-        AudioBox(player: playerState.playerList[0]),
-        AudioBox(player: playerState.playerList[0]),
-        AudioBox(player: playerState.playerList[0]),
-        AudioBox(player: playerState.playerList[0]),
+        for (var player in playerState.playerList) AudioBox(player: player),
       ],
     );
   }

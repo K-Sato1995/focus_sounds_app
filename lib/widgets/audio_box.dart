@@ -23,7 +23,7 @@ class AudioBox extends StatelessWidget {
           child: InkWell(
             onTap: () => {print(player.title), player.resume()},
             child: SvgPicture.asset(
-              Assets.cafeSvg.path,
+              player.imageResourcePath,
             ),
           ),
         ),
