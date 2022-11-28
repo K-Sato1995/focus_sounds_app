@@ -38,9 +38,8 @@ class AudioBox extends ConsumerWidget {
             ),
           ),
         ),
-        VolumeSlider(
-          player: player,
-        )
+        if (player.state == audio_players.PlayerState.playing)
+          VolumeSlider(player: player)
       ],
     );
   }

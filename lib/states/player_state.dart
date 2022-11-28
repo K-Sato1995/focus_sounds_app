@@ -61,6 +61,9 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
       await playerItem.setSource(AssetSource(playerItem.soundResourcePath));
       await playerItem.setReleaseMode(ReleaseMode.loop);
 
+      playerItem.onPlayerStateChanged.listen((state) {
+        print(state);
+      });
       state = state.copyWith(
         playerList: [...state.playerList, playerItem],
       );
@@ -81,6 +84,7 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
         player.resume();
       }
     }
+    state = state.copyWith();
   }
 
   void pause(String playerId) {
@@ -89,6 +93,7 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
         player.pause();
       }
     }
+    state = state.copyWith();
   }
 
   // NOT USED RN
