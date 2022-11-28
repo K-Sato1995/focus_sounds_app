@@ -37,8 +37,8 @@ class _AudioBoxList extends ConsumerWidget {
     final playerState = ref.watch(playerProvider);
 
     return GridView.count(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
-      crossAxisSpacing: 30,
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 60),
+      crossAxisSpacing: 10,
       mainAxisSpacing: 50,
       crossAxisCount: 3,
       shrinkWrap: true,

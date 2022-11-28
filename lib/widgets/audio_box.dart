@@ -17,30 +17,32 @@ class AudioBox extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final playerController = ref.watch(playerProvider.notifier);
 
-    return Column(
-      children: [
-        SizedBox(
-          height: 70,
-          width: 70,
-          child: InkWell(
-            onTap: () => {
-              if (player.state == audio_players.PlayerState.playing)
-                {
-                  playerController.pause(player.playerId),
-                }
-              else
-                {
-                  playerController.play(player.playerId),
-                }
-            },
-            child: SvgPicture.asset(
-              player.imageResourcePath,
+    return Container(
+      // decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 65,
+            child: InkWell(
+              onTap: () => {
+                if (player.state == audio_players.PlayerState.playing)
+                  {
+                    playerController.pause(player.playerId),
+                  }
+                else
+                  {
+                    playerController.play(player.playerId),
+                  }
+              },
+              child: SvgPicture.asset(
+                player.imageResourcePath,
+              ),
             ),
           ),
-        ),
-        if (player.state == audio_players.PlayerState.playing)
-          VolumeSlider(player: player)
-      ],
+          if (player.state == audio_players.PlayerState.playing)
+            VolumeSlider(player: player)
+        ],
+      ),
     );
   }
 }

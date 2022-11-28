@@ -19,19 +19,25 @@ class _VolumeSliderState extends State<VolumeSlider> {
 
   @override
   Widget build(BuildContext context) {
-    return Slider(
-      thumbColor: CustomColors.textColor,
-      activeColor: CustomColors.textColor,
-      inactiveColor: CustomColors.textColor,
-      value: _currentVolume,
-      max: 1.0,
-      divisions: 5,
-      onChanged: (value) {
-        setState(() {
-          _currentVolume = value;
-          widget.player.setVolume(value);
-        });
-      },
+    return SliderTheme(
+      data: const SliderThemeData(
+          trackHeight: 2.0,
+          thumbShape: RoundSliderThumbShape(enabledThumbRadius: 5.0)),
+      child: Slider(
+        thumbColor: CustomColors.textColor,
+        activeColor: CustomColors.textColor,
+        inactiveColor: CustomColors.textColor,
+        value: _currentVolume,
+        label: '${_currentVolume * 100}',
+        max: 1.0,
+        divisions: 5,
+        onChanged: (value) {
+          setState(() {
+            _currentVolume = value;
+            widget.player.setVolume(value);
+          });
+        },
+      ),
     );
   }
 }
