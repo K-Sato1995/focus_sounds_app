@@ -91,15 +91,17 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
     }
   }
 
+  // NOT USED RN
   void onChangeVolume(String playerId, double volume) {
-    state = state.copyWith(
-      playerList: [
-        for (final player in state.playerList)
-          if (player.playerId == playerId)
-            player.copyWith(currentVolume: volume)
-          else
-            player
-      ],
-    );
+    final playerList = state.playerList.map((player) {
+      if (player.playerId == playerId) {
+        final newPlayer = player.copyWith(currentVolume: volume);
+        newPlayer.setVolume(newPlayer.currentVolume);
+        return newPlayer;
+      }
+      return player;
+    }).toList();
+
+    state = state.copyWith(playerList: playerList);
   }
 }
