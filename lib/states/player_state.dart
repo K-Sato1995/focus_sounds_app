@@ -9,13 +9,28 @@ class AudioPlayerItem extends AudioPlayer {
   final String title;
   final String imageResourcePath;
   final String soundResourcePath;
-  double currentVolume = 0.5;
+  final double currentVolume;
 
   AudioPlayerItem({
     required this.title,
     required this.imageResourcePath,
     required this.soundResourcePath,
+    this.currentVolume = 0.5,
   });
+
+  AudioPlayerItem copyWith({
+    String? title,
+    String? imageResourcePath,
+    String? soundResourcePath,
+    double? currentVolume,
+  }) {
+    return AudioPlayerItem(
+      title: title ?? this.title,
+      imageResourcePath: imageResourcePath ?? this.imageResourcePath,
+      soundResourcePath: soundResourcePath ?? this.soundResourcePath,
+      currentVolume: currentVolume ?? this.currentVolume,
+    );
+  }
 }
 
 @freezed
@@ -77,11 +92,14 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
   }
 
   void onChangeVolume(String playerId, double volume) {
-    for (var player in state.playerList) {
-      if (player.playerId == playerId) {
-        player.currentVolume = volume;
-        player.setVolume(volume);
-      }
-    }
+    state = state.copyWith(
+      playerList: [
+        for (final player in state.playerList)
+          if (player.playerId == playerId)
+            player.copyWith(currentVolume: volume)
+          else
+            player
+      ],
+    );
   }
 }
