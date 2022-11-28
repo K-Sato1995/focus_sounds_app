@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         margin: const EdgeInsets.only(top: 80),
         child: Column(
           children: const [
-            Text('Focus sound',
+            Text('Focus sounds',
                 style: TextStyle(
                     color: CustomColors.textColor,
                     fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class _AudioBoxList extends ConsumerWidget {
     return GridView.count(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
       crossAxisSpacing: 30,
-      mainAxisSpacing: 60,
+      mainAxisSpacing: 50,
       crossAxisCount: 3,
       shrinkWrap: true,
       children: [

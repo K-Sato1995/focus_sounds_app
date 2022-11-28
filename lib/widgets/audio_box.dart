@@ -20,8 +20,8 @@ class AudioBox extends ConsumerWidget {
     return Column(
       children: [
         SizedBox(
-          height: 50,
-          width: 50,
+          height: 70,
+          width: 70,
           child: InkWell(
             onTap: () => {
               if (player.state == audio_players.PlayerState.playing)

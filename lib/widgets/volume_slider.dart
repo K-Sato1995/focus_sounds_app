@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focus_sound_app/states/player_state.dart';
+import 'package:focus_sound_app/styles/colors.dart';
 
 class VolumeSlider extends StatefulWidget {
   final AudioPlayerItem player;
@@ -19,6 +20,9 @@ class _VolumeSliderState extends State<VolumeSlider> {
   @override
   Widget build(BuildContext context) {
     return Slider(
+      thumbColor: CustomColors.textColor,
+      activeColor: CustomColors.textColor,
+      inactiveColor: CustomColors.textColor,
       value: _currentVolume,
       max: 1.0,
       divisions: 5,
